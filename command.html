@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>
+iwr -useb get.scoop.sh | iex
+scoop install symfony-cli  
+
+symfony check:requirements
+symfony server:start -d
+
+symfony open:local  
+
+composer require annotations
+composer require maker  
+
+symfony console make:controller MoviesController
+
+    </p>
+</body>
+</html>
+
