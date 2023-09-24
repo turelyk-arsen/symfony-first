@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+Movies Page
+{% endblock %}
+
+{% block body %}
+<h1>
+    Welcome to my first SYMFONY course!
+</h1>
+{# <h2>
+    {{title}}
+</h2>   
+ {{dump(title)}}
+
+{% if title %}
+    <h2>{{title}} is a movie</h2>
+{% else %}
+    <h2>Whoops, no title has been set.</h2>
+{% endif %} #}
+
+{% for movie in movies %}
+    <li>{{movie}}</li>
+{% endfor %}
+
+<br>
+{{ author }}
+<br>
+{{_self}}
+<br>
+{{_charset}}
+{% endblock %}

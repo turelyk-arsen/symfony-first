@@ -7,19 +7,25 @@
 </head>
 <body>
     <p>
-iwr -useb get.scoop.sh | iex
-scoop install symfony-cli  
+iwr -useb get.scoop.sh | iex  ===install scoop to install CLI
+scoop install symfony-cli  === install CLI
 
 symfony check:requirements
 symfony server:start -d
 
-symfony open:local  
+symfony open:local  === open local server 
 
-composer require annotations
-composer require maker  
+composer require annotations  ==== install annotations
+composer require maker  ==== install maker
+composer require twig
 
-symfony console make:controller MoviesController
+symfony console  === ALL command 
+symfony console list doctrine
+symfony console make:controller MoviesController  === create controller
+symfony console debug:router  === all available router
 
+
+"emmet.includeLanguages": {"twig": "html"}, === add emmet into VS CODE
     </p>
 </body>
 </html>
