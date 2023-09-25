@@ -19,6 +19,18 @@ composer require annotations  ==== install annotations
 composer require maker  ==== install maker
 composer require twig
 
+doctrine
+composer require symfony/orm-pack
+composer require --dev symfony/maker-bundle
+add .env 
+
+php bin/console doctrine:database:create
+symfony console doctrine:database:create
+
+symfony console make:entity Movie
+symfony console make:migration
+symfony console doctrine:migrations:migrate
+
 symfony console  === ALL command 
 symfony console list doctrine
 symfony console make:controller MoviesController  === create controller
