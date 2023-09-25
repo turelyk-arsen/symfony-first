@@ -30,7 +30,10 @@ symfony console doctrine:database:create
 symfony console make:entity Movie
 symfony console make:migration
 symfony console doctrine:migrations:migrate
+composer require --dev doctrine/doctrine-fixtures-bundle
+symfony console doctrine:fixtures:load
 
+INSTALL
 symfony console  === ALL command 
 symfony console list doctrine
 symfony console make:controller MoviesController  === create controller
