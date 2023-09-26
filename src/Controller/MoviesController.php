@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-// use App\Repository\MovieRepository;
+use App\Repository\MovieRepository;
 use App\Entity\Movie;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,19 +26,19 @@ class MoviesController extends AbstractController
         $this->em = $em;
     }
     #[Route('/movies', name: 'app_movies')]
-    // public function index(MovieRepository $movieRepository): Response
-    // {   
-    //     $movies = $movieRepository->findAll();
-    //     dd($movies);
-    //     // $movies = ["Avengers: Endgame", "Inception", "Loki", "Black Widow"];
+    public function index(MovieRepository $movieRepository): Response
+    {   
+        $movies = $movieRepository->findAll();
+        // dd($movies);
+        // $movies = ["Avengers: Endgame", "Inception", "Loki", "Black Widow"];
         
-    //     // return $this->render('index.html.twig', 
-    //     // // ['title' => 'Avengers: Endgame']
-    //     //  array('movies' => $movies)
-    //     // );
+        // return $this->render('index.html.twig', 
+        // // ['title' => 'Avengers: Endgame']
+        //  array('movies' => $movies)
+        // );
 
-    //     return $this->render('index.html.twig');
-    // }
+        return $this->render('index.html.twig');
+    }
 
     // public function second (EntityManagerInterface $emt): Response
     // {   
@@ -56,9 +56,9 @@ class MoviesController extends AbstractController
     // }
     
 
-    public function index (): Response
-    {   
-        $repository = $this->em->getRepository(Movie::class);
+    // public function index (): Response
+    // {   
+        // $repository = $this->em->getRepository(Movie::class);
         // findAll() SELECT * FROM movies
         // $movies= $repository->findAll();
         
@@ -66,7 +66,7 @@ class MoviesController extends AbstractController
         // $movies= $repository->find('5');
         
         // findBy() - SELECT * FROM movies ORDER BY id DESC
-        $movies= $repository->findBy([],['id'=>'DESC']);
+        // $movies= $repository->findBy([],['id'=>'DESC']);
 
         //findOneBy - SELECT * FROM movies WHERE id = 5
         // AND title = 'The Dark Knight' ORDER BY id DESC
@@ -79,7 +79,7 @@ class MoviesController extends AbstractController
         //App\Entity\Movie
         // $movies = $repository->getClassName();
         
-        dd($movies);
+        // dd($movies);
         // $movies = ["Avengers: Endgame", "Inception", "Loki", "Black Widow"];
         
         // return $this->render('index.html.twig', 
@@ -87,6 +87,6 @@ class MoviesController extends AbstractController
         //  array('movies' => $movies)
         // );
 
-        return $this->render('index.html.twig');
-    }
+    //     return $this->render('index.html.twig');
+    // }
 }
