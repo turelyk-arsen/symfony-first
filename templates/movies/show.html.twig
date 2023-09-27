@@ -3,7 +3,7 @@
 {% block body %}
     <div class="sm:w-3/5 w-4/5 mx-auto">
         <h1 class="pt-20 sm:text-5xl md:text-7xl text-4xl font-bold text-center">
-            {{ movie.title }}
+            {{ movie.title | default('No title available') }}
         </h1>
 
         <div class="py-10 text-center">
