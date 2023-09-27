@@ -11,7 +11,38 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 // use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MoviesController extends AbstractController
-{
+{   
+    private $movieRepository;
+    public function __construct(MovieRepository $movieRepository) {
+        $this->movieRepository = $movieRepository;
+    }
+
+    #[Route('/movies', methods: ['GET'], name: 'app_movies')]
+    public function index(): Response
+    {   
+        $movies = $this->movieRepository->findAll();
+        
+        // dd($movies);
+        return $this->render('/movies/index.html.twig', [
+            'movies' => $movies
+        ]);
+
+        // return $this->render('/movies/index.html.twig', [
+        //     'movies' => $this->movieRepository->findAll()
+        // ]);
+    }
+
+    #[Route('/movies/{id}', methods: ['GET'], name: 'app_movie')]
+    public function show($id): Response
+    {   
+        $movie = $this->movieRepository->find($id);
+        
+        return $this->render('/movies/show.html.twig', [
+            'movie' => $movie
+        ]);
+    }
+
+    
     // #[Route('/movies/{name}', name: 'app_movies', defaults:['name'=>null], methods: ['GET', 'HEAD'])]
     // public function index($name): JsonResponse
     // {
@@ -20,25 +51,25 @@ class MoviesController extends AbstractController
     //         'path' => 'src/Controller/MoviesController.php'
     //     ]);
     // }
-    private $em;
-    public function __construct(EntityManagerInterface $em)
-    {
-        $this->em = $em;
-    }
-    #[Route('/movies', name: 'app_movies')]
-    public function index(MovieRepository $movieRepository): Response
-    {   
-        $movies = $movieRepository->findAll();
-        // dd($movies);
-        // $movies = ["Avengers: Endgame", "Inception", "Loki", "Black Widow"];
+    // private $em;
+    // public function __construct(EntityManagerInterface $em)
+    // {
+    //     $this->em = $em;
+    // }
+    // #[Route('/movies', name: 'app_movies')]
+    // public function index(MovieRepository $movieRepository): Response
+    // {   
+    //     $movies = $movieRepository->findAll();
+    //     // dd($movies);
+    //     // $movies = ["Avengers: Endgame", "Inception", "Loki", "Black Widow"];
         
-        // return $this->render('index.html.twig', 
-        // // ['title' => 'Avengers: Endgame']
-        //  array('movies' => $movies)
-        // );
+    //     // return $this->render('index.html.twig', 
+    //     // // ['title' => 'Avengers: Endgame']
+    //     //  array('movies' => $movies)
+    //     // );
 
-        return $this->render('index.html.twig');
-    }
+    //     return $this->render('index.html.twig');
+    // }
 
     // public function second (EntityManagerInterface $emt): Response
     // {   
