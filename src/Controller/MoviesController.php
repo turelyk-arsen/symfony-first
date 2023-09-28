@@ -114,7 +114,7 @@ class MoviesController extends AbstractController
                     if (file_exists(
                         $this->getParameter('kernel.project_dir') . $movie->getImagePath()
                         )) {
-                            $this->GetParameter('kernel.project_dir') . $movie->getImagePath();
+                            $this->getParameter('kernel.project_dir') . $movie->getImagePath();
                     }
                     $newFileName = uniqid() . '.' . $imagePath->guessExtension();
 
