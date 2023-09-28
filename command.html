@@ -59,6 +59,14 @@ symfony console make:form MovieFormType Movie
 composer require symfony/mime
 composer require symfony/validator doctrine/annotations
 
+REGISTRATION
+composer require symfony/security-bundle
+symfony console make:user User
+symfony console make:migration
+symfony console doctrine:migrations:migrate
+symfony console make:registration-form
+symfony console make:auth
+
 "emmet.includeLanguages": {"twig": "html"}, === add emmet into VS CODE
     </p>
 </body>
