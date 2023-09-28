@@ -36,14 +36,18 @@ class MovieFormType extends AbstractType
                 outline-none',
                 'placeholder' => 'Enter Description ...'),
                 'label' => false
-            ])
-            ->add('imagePath', FileType::class, [
-                'attr' => array(
-                'class' => 'py-10'),
-                'label' => false
-            ])
+                ])
+            ->add('imagePath', FileType::class, array(
+                'required' => false,
+                'mapped' => false
+            ));
+            // ->add('imagePath', FileType::class, [
+            //     'attr' => array(
+            //     'class' => 'py-10'),
+            //     'label' => false
+            // ])
             // ->add('actors')
-        ;
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void
