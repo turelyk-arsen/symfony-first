@@ -3,7 +3,7 @@ version: '3.8'
 services:
   php:
     container_name: php-first-image
-    image: new:01
+    image: arsenturelyk/new:01
     # build:
     #   context: ./docker/php
     # ports:
